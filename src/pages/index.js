@@ -80,10 +80,18 @@ export default function Home() {
       <div
         /* Main section - Snap 2 */
         id="main-section"
-        className="w-full h-screen snap-start xl:overflow-y-scroll"
+        className="w-full h-screen snap-start xl:overflow-y-scroll hidden-scroll"
       >
-        <div className="bg-red-500 max-w-[1500px] mx-auto h-[1400px] text-white">
-          Main Content Area (Scrolls vertically)
+        <div className="max-w-[1500px] mx-auto h-auto text-white pt-30">
+          <motion.h1
+            className="text-4xl"
+            initial={{ opacity: 0, y: -60, scale: 0.7 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ delay: 0, duration: 0.4 }} // Animation settings
+          >
+            Hello, I'm <span className=" text-highlight">Josh</span>. The
+            Engineer Behind Your Best User Interface.
+          </motion.h1>
         </div>
       </div>
     </div>
