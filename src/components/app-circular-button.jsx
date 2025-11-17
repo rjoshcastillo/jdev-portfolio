@@ -1,10 +1,10 @@
 import { motion } from "motion/react";
-const AppCircularButton = ({ icon }) => {
+const AppCircularButton = ({ children, ...props }) => {
   return (
     <motion.button
+      {...props}
       className="px-3 py-3 cursor-pointer circle"
-      layoutId="modal"
-      style={{ background: 'rgba(255, 255, 255, 0.2)' }}
+      style={{ background: "rgba(255, 255, 255, 0.2)" }}
       whileHover={{
         scale: 1.2,
       }}
@@ -17,7 +17,7 @@ const AppCircularButton = ({ icon }) => {
         damping: 20,
       }}
     >
-      {icon}
+      {children}
     </motion.button>
   );
 };

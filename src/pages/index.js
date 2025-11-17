@@ -1,5 +1,4 @@
 import Image from "next/image";
-import ProfileImage from "@/assets/profile-image.jpg";
 import AppDivider from "@/components/app-divider";
 import { motion } from "motion/react";
 import AppButton from "@/components/app-button";
@@ -8,90 +7,58 @@ import GithubIcon from "@/components/icons/github-icon";
 import WebIcon from "@/components/icons/web-icon";
 import { MailIcon } from "lucide-react";
 import TelephoneIcon from "@/components/icons/telephone-icon";
+import useSpotlightEffect from "@/hooks/use-spotlight-effect";
+import AppSectionDivider from "@/components/app-section-divider";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
+
+import "swiper/css";
+import "swiper/css/autoplay";
+
+import AppTypewriterText from "@/components/app-typewriter-text";
+import ProfileDetails from "@/components/molecules/profile-details";
+import HomeSection from "@/components/molecules/home/home-section";
+import ProfileImage from "@/components/molecules/profile-image";
+import AboutSection from "@/components/molecules/about/about-section";
 
 const boxShadowRight = {
   boxShadow: "105px 0px 250px -147px rgba(242, 133, 24, 1)",
 };
 
 export default function Home() {
+  const spotlightConfig = {
+    radius: 200,
+    brightness: 0.15,
+    color: "#ffffff",
+    smoothing: 0.1,
+  };
+
+  const canvasRef = useSpotlightEffect(spotlightConfig);
   return (
     <div className="flex flex-col xl:flex-row h-screen snap-y snap-mandatory scrollable">
-      {/* Profile Card - Snap 1*/}
+      <canvas
+        ref={canvasRef}
+        className="fixed inset-0 w-full h-full z-0 pointer-events-none"
+      />
       <div
-        className="flex relative flex-shrink-0 xl:w-[480px] h-screen snap-start"
+        className="flex relative shrink-0 xl:w-[480px] h-screen snap-start"
         style={boxShadowRight}
       >
-        {/* Profile Info */}
         <div className="flex justify-center w-full m-10">
-          {}
-          <div
-            /** Image Container */
-            className="w-full md:w-[380px] lg:mt-20"
-          >
-            <div className="bg-blue-500 h-[300px] rounded-4xl relative overflow-hidden">
-              <Image
-                src={ProfileImage}
-                alt="Profile"
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div className="text-center mt-10 flex flex-col gap-2">
-              <h1 className="text-4xl">Joshua C. Ramos</h1>
-              <div className="subText">rjosh4457@gmail.com</div>
-              <div className="subText ">Bonifacio Global City, Taguig</div>
-              <motion.div
-                style={{
-                  margin: "0 auto",
-                  marginTop: 20,
-                  display: "flex",
-                  gap: 10,
-                }}
-              >
-                <AppCircularButton icon={<MailIcon />} />
-                <AppCircularButton icon={<TelephoneIcon />} />
-                <AppCircularButton icon={<WebIcon />} />
-                <AppCircularButton icon={<GithubIcon />} />
-              </motion.div>
-
-              <div className="mx-auto">
-                <AppDivider
-                  height={150}
-                  color="var(--borderColor)"
-                  thickness={1}
-                />
-              </div>
-              <motion.div style={{ margin: "0 auto", width: 200 }}>
-                <AppButton
-                  onClick={() => {
-                    document.getElementById("main-section")?.scrollIntoView({
-                      behavior: "smooth",
-                    });
-                  }}
-                >
-                  Contact
-                </AppButton>
-              </motion.div>
-            </div>
+          <div className="w-full md:w-[380px] lg:mt-20">
+            <ProfileImage />
+            <ProfileDetails />
           </div>
         </div>
       </div>
 
       <div
-        /* Main section - Snap 2 */
         id="main-section"
-        className="w-full h-screen snap-start xl:overflow-y-scroll hidden-scroll"
+        className="w-full h-screen snap-start xl:overflow-y-scroll hidden-scroll p-6 xl:p-30"
       >
-        <div className="max-w-[1500px] mx-auto h-auto text-white pt-30">
-          <motion.h1
-            className="text-4xl"
-            initial={{ opacity: 0, y: -60, scale: 0.7 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ delay: 0, duration: 0.4 }} // Animation settings
-          >
-            Hello, I'm <span className=" text-highlight">Josh</span>. The
-            Engineer Behind Your Best User Interface.
-          </motion.h1>
+        <div className="flex flex-col gap-4 max-w-[1500px] mx-auto h-auto text-white ">
+          <HomeSection />
+          <AboutSection />
         </div>
       </div>
     </div>
