@@ -38,15 +38,11 @@ export default function Home() {
         <SideBar />
       </motion.div>
       <div
-        className="flex relative shrink-0 xl:w-[480px] h-screen snap-start"
+        className="flex flex-col relative shrink-0 xl:w-[20%] h-screen snap-start"
         style={boxShadowRight}
       >
-        <div className="flex justify-center w-full m-10">
-          <div className="w-full md:w-[380px] lg:mt-20">
-            <ProfileImage />
-            <ProfileDetails />
-          </div>
-        </div>
+        <ProfileImage />
+        <ProfileDetails />
       </div>
       <div id="main-section" className="w-full h-screen snap-start">
         <div className="flex flex-col gap-4 h-screen scrollable">

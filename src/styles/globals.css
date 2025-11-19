@@ -62,5 +62,5 @@ body * {
 }
 .sub-text {
   color: var(--subText);
-  font-size: large;
+  font-size: medium;
 }

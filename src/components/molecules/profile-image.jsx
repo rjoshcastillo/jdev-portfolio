@@ -9,7 +9,7 @@ const ProfileImage = () => {
       initial={ScaleUp.initial}
       animate={ScaleUp.animate}
       transition={{ duration: 0.8 }}
-      className="bg-blue-500 h-[300px] rounded-4xl relative overflow-hidden"
+      className="bg-blue-500 aspect-square m-8 rounded-4xl relative overflow-hidden"
     >
       <Image
         src={profileImg}

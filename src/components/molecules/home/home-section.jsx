@@ -24,7 +24,7 @@ const HomeSection = () => {
       <AppSectionDivider {...ScaleUp} label="Home" />
       <motion.h1
         ref={greetings.ref}
-        className="xl:text-6xl text-5xl"
+        className="text-5xl"
         initial={FadeInLeft.initial}
         animate={greetings.isInView ? FadeInLeft.animate : {}}
         transition={FadeInLeft.transition}
