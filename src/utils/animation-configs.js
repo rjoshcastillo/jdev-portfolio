@@ -14,9 +14,18 @@ export const FadeIn = {
   animate: { opacity: 1 },
   transition: { duration: 1 },
 };
-
+export const FadeInRight = {
+  initial: { opacity: 0, x: 40 },
+  animate: { opacity: 1, x: 0 },
+  transition: { duration: 1 },
+};
 export const FadeInBottom = {
   initial: { opacity: 0, y: 40 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 1 },
+};
+export const FadeInTop = {
+  initial: { opacity: 0, y: -40 },
   animate: { opacity: 1, y: 0 },
   transition: { duration: 1 },
 };

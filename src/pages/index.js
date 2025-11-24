@@ -11,6 +11,7 @@ import ProfileImage from "@/components/molecules/profile-image";
 import AboutSection from "@/components/molecules/about/about-section";
 import Experience from "@/components/molecules/experiences/experience";
 import SideBar from "@/components/molecules/side-bar";
+import FeaturedProjects from "@/components/molecules/projects/featured-projects";
 
 const boxShadowRight = {
   boxShadow: "105px 0px 250px -147px rgba(242, 133, 24, 1)",
@@ -50,6 +51,7 @@ export default function Home() {
             <HomeSection />
             <AboutSection />
             <Experience />
+            <FeaturedProjects />
           </div>
         </div>
       </div>

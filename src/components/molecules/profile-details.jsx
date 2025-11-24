@@ -30,7 +30,7 @@ const ProfileDetails = () => {
           transition={{ delay: 0.1, ...FadeInLeft.transition }}
           className="sub-text"
         >
-          rjosh4457@gmail.com
+          jramos.dev72@gmail.com
         </motion.p>
         <motion.p
           ref={details.ref}
@@ -39,7 +39,7 @@ const ProfileDetails = () => {
           transition={{ delay: 0.2, ...FadeInLeft.transition }}
           className="sub-text"
         >
-          Bonifacio Global City, Taguig
+          Guadalupe, Makati City
         </motion.p>
         <motion.div
           className="flex gap-4"

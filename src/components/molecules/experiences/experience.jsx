@@ -31,7 +31,7 @@ const Experience = () => {
   ];
 
   return (
-    <motion.div id="experience-section" className="flex flex-col gap-4 pt-10">
+    <motion.div id="experience-section" className="flex flex-col gap-10 pt-10 mb-40">
       <AppSectionDivider
         initial={ScaleUp.initial}
         animate={isTitleInView ? ScaleUp.animate : {}}

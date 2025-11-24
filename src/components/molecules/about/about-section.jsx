@@ -300,6 +300,7 @@ const AboutSection = () => {
                   >
                     {item.stacks.map((s, i) => (
                       <motion.div
+                        key={i}
                         initial={{ scale: 1 }}
                         whileHover={{ scale: 1.1 }}
                         transition={{ duration: 0.2 }}

@@ -3,6 +3,7 @@ import AppCircularButton from "../app-circular-button";
 import HomeIcon from "../icons/home-icon";
 import UserStarIcon from "../icons/user-star-icon";
 import BriefcaseIcon from "../icons/briefcase-icon";
+import ProjectsIcon from "../icons/projects-icon";
 const SideBar = () => {
   const whileHover = {
     backgroundColor: "var(--highlight)",
@@ -26,6 +27,9 @@ const SideBar = () => {
       </AppCircularButton>
       <AppCircularButton onClick={() => handleClick("experience-section")}>
         <BriefcaseIcon />
+      </AppCircularButton>
+      <AppCircularButton onClick={() => handleClick("featured-projects")}>
+        <ProjectsIcon />
       </AppCircularButton>
     </motion.div>
   );
