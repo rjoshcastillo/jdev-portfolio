@@ -12,7 +12,6 @@ export default function Document() {
       <body className="antialiased">
         <Main />
         <NextScript />
-        <Script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></Script>
       </body>
     </Html>
   );

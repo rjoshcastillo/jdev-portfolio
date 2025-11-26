@@ -75,7 +75,7 @@ const FeaturedProjects = () => {
   ];
 
   return (
-    <motion.div id="featured-projects" className="flex flex-col gap-10 pt-10">
+    <motion.div id="featured-projects" className="flex flex-col gap-10 pt-10 mb-40">
       <AppSectionDivider
         initial={ScaleUp.initial}
         animate={title.isInView ? ScaleUp.animate : {}}
@@ -96,7 +96,7 @@ const FeaturedProjects = () => {
         return (
           <ProjectCard
             key={index}
-            ref={ref}
+            innerRef={ref}
             alt={item.alt}
             img={item.img}
             align={item.align}

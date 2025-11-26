@@ -1,19 +1,18 @@
 import AppPills from "@/components/app-pills";
 import { FadeInLeft, FadeInRight, FadeInTop } from "@/utils/animation-configs";
 import clsx from "clsx";
-import { motion } from "motion/react";
+import { motion, useInView } from "motion/react";
 import Image from "next/image";
-import { useInView } from "motion/react";
 import { useWindowWidth } from "@/hooks/useWindowWidth";
+import { useEffect, useState } from "react";
 
-const Content = ({ img, alt, pills = [], align, ref }) => {
-  const isInView = useInView(ref, { once: true });
+const Content = ({ img, alt, pills = [], align, innerRef }) => {
+  const isInView = useInView(innerRef, { once: true });
   const animation = align === "left" ? FadeInLeft : FadeInRight;
-
   return (
     <motion.div className="flex flex-col gap-6 xl:w-1/2">
       <motion.div
-        ref={ref}
+        ref={innerRef}
         initial={animation.initial}
         animate={isInView ? animation.animate : {}}
         transition={{ duration: 0.5 }}
@@ -36,12 +35,12 @@ const Content = ({ img, alt, pills = [], align, ref }) => {
   );
 };
 
-const Label = ({ description, align, ref, className, props }) => {
-  const isInView = useInView(ref, { once: true });
+const Label = ({ description, align, innerRef, className, props }) => {
+  const isInView = useInView(innerRef, { once: true });
   return (
     <motion.div
       {...props}
-      ref={ref}
+      ref={innerRef}
       initial={FadeInTop.initial}
       animate={isInView ? FadeInTop.animate : {}}
       transition={{ duration: 0.5 }}
@@ -63,34 +62,47 @@ export default function ProjectCard({
   title,
   description,
   align,
-  ref,
+  innerRef,
 }) {
   const windowWidth = useWindowWidth();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   return (
     <motion.div>
       <div className="flex">
         {align === "left" ? (
           <>
             <Content
-              ref={ref}
+              innerRef={innerRef}
               img={img}
               alt={alt}
               pills={pills}
               title={title}
               align={align}
             />
-            {windowWidth >= 1025 && (
-              <Label align={align} description={description} ref={ref} />
+            {mounted && windowWidth >= 1025 && (
+              <Label
+                align={align}
+                description={description}
+                innerRef={innerRef}
+              />
             )}
           </>
         ) : (
           <>
-            {windowWidth >= 1025 && (
-              <Label align={align} description={description} ref={ref} />
+            {mounted && windowWidth >= 1025 && (
+              <Label
+                align={align}
+                description={description}
+                innerRef={innerRef}
+              />
             )}
 
             <Content
-              ref={ref}
+              innerRef={innerRef}
               img={img}
               alt={alt}
               pills={pills}
