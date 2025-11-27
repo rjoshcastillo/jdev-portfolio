@@ -110,7 +110,7 @@ const ProfileDetails = () => {
       </motion.div> */}
 
       <motion.div
-        className="mx-auto mb-10"
+        className="mx-auto mb-40"
         initial={{ opacity: 0, width: 0 }}
         animate={{ opacity: 1, width: 200 }}
         transition={{ delay: 1, duration: 0.6 }}

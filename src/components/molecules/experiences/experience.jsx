@@ -11,7 +11,7 @@ const Experience = () => {
     {
       year: "2025 - Present",
       title: "Front-End Web Developer",
-      company: "Company Name",
+      company: "VAVASOFTWARE",
     },
     {
       year: "2022 - 2025",
@@ -31,7 +31,10 @@ const Experience = () => {
   ];
 
   return (
-    <motion.div id="experience-section" className="flex flex-col gap-10 pt-10 mb-40">
+    <motion.div
+      id="experience-section"
+      className="flex flex-col gap-10 pt-10 mb-40"
+    >
       <AppSectionDivider
         initial={ScaleUp.initial}
         animate={isTitleInView ? ScaleUp.animate : {}}
