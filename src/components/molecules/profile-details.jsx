@@ -117,7 +117,7 @@ const ProfileDetails = () => {
       >
         <AppButton
           onClick={() => {
-            window.location.href = "mailto:support@example.com";
+            window.location.href = "mailto:rjosh4457@example.com";
           }}
         >
           <motion.span
